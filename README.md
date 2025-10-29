@@ -1,11 +1,11 @@
-<h1 align='center'>Freelaway - Aplicação de Trabalhos Freelancer</h1>
-
-<h2 align='center'>Plataforma full-stack desenvolvida na 10º PyStack Week conduzida pelo professor Caio Sampaio.</h2>
+<p align='center'><img src="media/logo.png" alt="logo" width="600"/></p>
+<h1 align='center'>FreelaWay</h1>
+<p align='center'>Plataforma de trabalhos freelancer full-stack - desenvolvida durante a 3ª edição do evento PyStack Week, conduzida pelo professor Caio Sampaio.</p>
 
 ## Rode localmente
 1. Clone o repositório:
 ```bash
-  git clone https://github.com/amanmdest/DjangoPollsTutorialDIO.git
+  git clone https://github.com/amanmdest/psw3_Freelaway.git
 ```
 2. Instale dependências(recomenda-se ter um ambiente virtual para as instalações, neste projeto utilizei o Pyenv):
 ```bash
@@ -28,11 +28,11 @@ e acesse: http://127.0.0.1:8000/
 
 ## 📷 Imagens
 <kbd>
-  <img src="media/login.png" alt="login" width="600" />
+  <img src="media/login.png" alt="login" width="600"/>
 </kbd>
 <kbd>
-  <img src="media/cadastro.png" alt="cadastro" width="600" />
+  <img src="media/cadastro.png" alt="cadastro" width="600"/>
 </kbd>
 <kbd>
-  <img src="media/jobs.png" alt="jobs" width="600" />
-</kbd>  
+  <img src="media/jobs.png" alt="jobs" width="600"/>  
+</kbd>
