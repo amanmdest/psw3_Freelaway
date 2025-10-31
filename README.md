@@ -22,29 +22,29 @@
 
 ## Rode localmente
 1. Clone o repositório:
-```bash
+```
   git clone https://github.com/amanmdest/psw3_Freelaway.git
 ```
 2. Crie e ative um *virtualenv*(Linux):
-```bash
+```
   python -m venv venv
   source venv/bin/activate
 ```
 3. Instale as dependências:
-```bash
+```
   pip install -r requirements.txt
 ```
 4. Migrações Banco de Dados:
-```bash
+```
   python manage.py makemigrations
   python manage.py migrate
 ```
 5. Para poder usar o painel do admin é preciso criar um superuser:
-```bash
+```
   python manage.py createsuperuser
 ```
 6. Rode o projeto localmente:
-```bash
+```
   python manage.py runserver
 ```
 e acesse: http://127.0.0.1:8000/
