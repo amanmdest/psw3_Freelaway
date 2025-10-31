@@ -25,7 +25,12 @@
 ```bash
   git clone https://github.com/amanmdest/psw3_Freelaway.git
 ```
-2. Instale dependências(recomenda-se ter um ambiente virtual para as instalações, neste projeto utilizei o Pyenv):
+2. Crie e ative um *virtualenv*(Linux):
+```bash
+  python -m venv venv
+  source venv/bin/activate
+```
+3. Instale as dependências:
 ```bash
   pip install -r requirements.txt
 ```
