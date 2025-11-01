@@ -42,42 +42,49 @@
         <hr class="borda-degrade">
         <br>
         <h4 class="titulo">Histórico</h4>
+        {% if jobs %}
+            <table style="background-color: #222; color: white;" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Imagem</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Prazo Entrega</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for job in jobs %}
+                        <tr>
+                            <th scope="row"><img width="100px" src="{{job.referencias.all.0}}"></th>
+                            <td>{{job.titulo}}</td>
+                            <td>{{job.categoria}}</td>
+                            <td>{% if job.categoria == 'D'%}
+                                Design
+                                {% else %}
+                                Edição de vídeo
+                                {% endif%}
+                            </td>
+                            <td>
+                                {% if job.status == 'AA'%}
+                                <span class="badge badge-info">Aguardando aprovação</span>
+                                {% elif job.status == 'C' %}
+                                <button class="badge badge-primary" data-toggle="modal" data-target="#modal-job-{{job.id}}">Em criação</button>
+                                
+                                {% else %}
+                                <span class="badge badge-success">Finalizado</span>
+                                {% endif %}
+                            </td>
+                            <td>{{job.prazo_entrega}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
 
-        <table style="background-color: #222; color: white;" class="table table-striped">
-            <thead>
-                <tr>
-                <th scope="col">Imagem</th>
-                <th scope="col">Título</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Status</th>
-                </tr>
-            </thead>
-            <tbody>
             {% for job in jobs %}
-                <tr>
-                    <th scope="row"><img width="100px" src="{{job.referencias.all.0}}"></th>
-                    <td>{{job.titulo}}</td>
-                    <td>{{job.categoria}}</td>
-                    <td>{% if job.categoria == 'D'%}
-                            Design
-                        {% else %}
-                            Edição de vídeo
-                        {% endif%}
-                    </td>
-                    <td>
-                        {% if job.status == 'AA'%}
-                        <span class="badge badge-info">Aguardando aprovação</span>
-                        {% elif job.status == 'C' %}
-                            <span class="badge badge-primary">Em criação</span>
-
-                        {% else %}
-                            <span class="badge badge-success">Finalizado</span>
-                        {% endif %}
-                    </td>
-                </tr>
-                {% if job.status == "C"%}
-                    <div class="modal fade" id="modal-job-{{job.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                {% if job.status == 'C' %}
+                    <div class="modal fade" id="modal-job-{{ job.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div style="background-color: #333;" class="modal-content">
                                 <div class="modal-header">
@@ -93,7 +100,7 @@
                                     <h6 class="titulo-body">Status:</h6>
 
                                     {% if job.status == 'AA'%}
-                                    <span class="badge badge-info">Aguardando aprovação</span>
+                                        <span class="badge badge-info">Aguardando aprovação</span>
                                     {% elif job.status == 'C' %}
                                         <a class="badge badge-primary">Em criação</a>
 
@@ -105,25 +112,21 @@
                                     <p>{{job.prazo_entrega}}</p>
 
                                     <hr style="border-color: yellow">
-                                    <form action="{% url 'enviar_projeto' %}" method="POST" enctype="multipart/form-data">
-                                        {% csrf_token %}
-                                        
+                                    <form action="{% url 'enviar_projeto' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
                                         <input type="file" class="form-control" placeholder="Enviar arquivos" name="file">
+                                        <input type="hidden" value="{{ job.id }}" name="id">
                                         <br>
                                         <input type="submit" value="Enviar" class="btn btn-success btn-lg">
-                                    
                                     </form>
-
                                 </div>
-                            
                             </div>
                         </div>
                     </div>
                 {% endif %}
             {% endfor %}
-            </tbody>
-        </table>
-
+        {% else %}
+            <hr style="border-color: green">
+            <strong><p>Você não tem histórico de jobs</p></strong>
+        {% endif %}
     </div>
-
 {% endblock %}

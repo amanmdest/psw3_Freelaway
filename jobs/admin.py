@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Referencias, Jobs
+from .models import Referencia, Job
 
-admin.site.register(Referencias)
-admin.site.register(Jobs)
+admin.site.register(Referencia)
+admin.site.register(Job)
