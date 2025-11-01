@@ -17,7 +17,19 @@
   <img src="media/login.png" alt="login" width="400"/>
 </kbd>  
 <kbd>
-  <img src="media/jobs.png" alt="jobs" width="400"/>  
+  <img src="media/encontrar_jobs.png" alt="jobs" width="400"/>  
+</kbd>
+</kbd>  
+<kbd>
+  <img src="media/perfil.png" alt="jobs" width="400"/>  
+</kbd>
+</kbd>  
+<kbd>
+  <img src="media/aceitar_job.png" alt="jobs" width="400"/>  
+</kbd>
+</kbd>  
+<kbd>
+  <img src="media/enviar_projeto.png" alt="jobs" width="400"/>  
 </kbd>
 
 ## Rode localmente
